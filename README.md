@@ -37,10 +37,12 @@ head(titanic)
 ## Cleanning the dataset
 
 The first thing I want to do is to observe whether there are missing data. This can be achieved by 
-```sum(is.na(titanic)
+```
+sum(is.na(titanic)
 ```
 Seeing it has 172 NA values, for simplicity here I omit these missing vaues by
-```titanic<-na.omit(titanic)
+```
+titanic<-na.omit(titanic)
 ```
 ## Splitting the dataset
 
@@ -52,7 +54,32 @@ trainning<-titanic[Intrain,]
 testing<-titanic[-Intrain,]
 ```
 
-## Exploring the dataset
+## Preprocessing and exploring the dataset
+
+First I want to check the structure of the dataset, by which I use the following command:
+```
+str(titanic)
+```
+Now I see the names of the variables, as well as their structure ( for example the Survived is an integer variable). This is important for future modelling session.
+
+Also I want to preprocess the data by checking whether there are near zero variance situations, which is usually harmful for modelling. To do that, I can
+```
+nzv <- nearZeroVar(trainning)
+nzv
+```
+Since this dataset is very simple, there is no such near zero variance cases occuring. 
+
+Another common issue is the dataset may contain collinerity, which is the case where two or more predictors are closely related such that including one of them is enough; while including all of them deteriorate our model. To check the  high correlation factors, I use the following commands:
+```
+titanicTemp<-cbind(trainning$Pclass, trainning$Age, trainning$SibSp, trainning$Parch, trainning$Fare)
+titanicTempCor<-cor(titanicTemp)
+titanicTempCor
+highCorr <- sum(abs(titanicTempCor[upper.tri(titanicTempCor)]) > .8)
+```
+Still, since this is a very simple dataset, there is no such issue here as well.
+
+
+
 
 
 
