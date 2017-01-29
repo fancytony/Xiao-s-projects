@@ -34,6 +34,31 @@ setwd("/Users/xiaoyin/Dropbox/data\ science\ job/my\ R\ projects")
 titanic<-read.table("titanic_train.csv",sep=",",header=TRUE)
 head(titanic)
 ```
+## Cleanning the dataset
+
+The first thing I want to do is to observe whether there are missing data. This can be achieved by 
+```sum(is.na(titanic)
+```
+Seeing it has 172 NA values, for simplicity here I omit these missing vaues by
+```titanic<-na.omit(titanic)
+```
+## Splitting the dataset
+
+The next thing I want to do, is to split the dataset as a trainning set and testing set. The goal is to train the model with trainning set and test the model with the testing set. Here I use 75% of the data my trainning set and 25% left as my testing set.
+
+```
+Intrain<-createDataPartition(y=titanic[,1],p=0.75,list=FALSE)
+trainning<-titanic[Intrain,]
+testing<-titanic[-Intrain,]
+```
+
+## Exploring the dataset
+
+
+
+
+
+
 
 
 
