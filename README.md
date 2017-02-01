@@ -28,6 +28,13 @@ library(randomForest)
 
 To load the dataset, I first set the path to the folder where my files are saved. And then I use "read.table" to load the Titanic dataset with headers.
 
+```{r cars}
+1+1
+summary(cars)
+```
+
+
+
 ```
 setwd("/Users/xiaoyin/Dropbox/data\ science\ job/my\ R\ projects")
 titanic<-read.table("titanic_train.csv",sep=",",header=TRUE)
