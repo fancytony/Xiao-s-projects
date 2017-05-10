@@ -1,8 +1,6 @@
-# Code challenge GA
+# breast canner classification
 
-## Challenge part 1: notebook.ipynb
-
-## Challenge part 2: test_part2.ipynb
+Build a classifier using python (numpy, scipy, pandas, sklearn) on the breast cancer dataset.
 
 
 
